@@ -5,7 +5,7 @@ dotenv.config();
 
 var DB_NAME = process.env.DB_NAME;
 var DB_URL = process.env.DB_URL;
-console.log(DB_URL);
+// console.log(DB_URL);
 
 mongoose.connect(`${DB_URL}`, {
     dbName: DB_NAME,
@@ -13,9 +13,9 @@ mongoose.connect(`${DB_URL}`, {
     useUnifiedTopology: true
 }, function(err) {
     if (err) {
-        console.error('Error connecting to MongoDB:', err);
+        // console.error('Error connecting to MongoDB:', err);
     } else {
-        console.log('Connected to MongoDB');
+        // console.log('Connected to MongoDB');
         
     }
 });

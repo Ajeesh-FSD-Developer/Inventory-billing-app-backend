@@ -65,7 +65,7 @@ console.log("port running", process.env.PORT);
 });
 
 // app.listen(3000)
-console.log(process.env.DB_URL)
+// console.log(process.env.DB_URL)
 
 
 
@@ -73,4 +73,4 @@ console.log(process.env.DB_URL)
 
 
 
-console.log("hello");
+// console.log("hello");

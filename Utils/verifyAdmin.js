@@ -32,7 +32,7 @@ const authMiddleware = (req, res, next) => {
    
     next();
   } catch (error) {
-    console.error("Error during access_token verification:", error);
+    // console.error("Error during access_token verification:", error);
     return res
       .status(401)
       .json({ message: "Unauthorized: Invalid access_token" });

@@ -57,11 +57,11 @@ const createInvoice = async (req, res, next) => {
       addProductsToCustomer.previouslyOrderedProducts.push(product._id);
     }
     const adminemail = await Admin.findById(req.params.id);
-    console.log(adminemail);
+    // console.log(adminemail);
 
     for (const product of req.body.prevProducts) {
       const quantityCheck = await PRODUCT.findOne({ _id: product._id });
-      console.log(product.productquantity);
+      // console.log(product.productquantity);
 
       if (quantityCheck.productquantity < product.productquantity) {
         return next(
@@ -84,10 +84,10 @@ const createInvoice = async (req, res, next) => {
         // Sending email inside the loop
         transporter.sendMail(mailOptions, (error, info) => {
           if (error) {
-            console.error("Error sending email:", error);
+            // console.error("Error sending email:", error);
             return res.status(500).json({ error: error.toString() });
           }
-          console.log("Email sent:", info.response);
+          // console.log("Email sent:", info.response);
           res.status(200).json({ result: "Verification email sent" });
         });
       }
@@ -130,7 +130,7 @@ const createInvoice = async (req, res, next) => {
 
 const getallInvoices = async (req, res, next) => {
   try {
-    console.log(req.params.id);
+    // console.log(req.params.id);
     if (req.user != req.params.id) {
       return next(errorHandler(404, "unauthorized"));
     }
@@ -169,7 +169,7 @@ const getallInvoices = async (req, res, next) => {
 
     res.status(200).json(invoices);
   } catch (error) {
-    console.error(error);
+    // console.error(error);
     res.status(500).json({ success: false, message: "Internal Server Error" });
   }
 };
@@ -394,7 +394,7 @@ const deleteinvoice = async (req, res, next) => {
       return next(errorHandler(404, "Invoice not found"));
     }
   } catch (error) {
-    console.error(error);
+    // console.error(error);
     ``;
     return next(errorHandler(500, "Internal Server Error"));
   }

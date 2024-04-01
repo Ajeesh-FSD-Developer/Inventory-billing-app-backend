@@ -48,7 +48,7 @@ const signupRouter = async (req, res, next) => {
 
     transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
-        console.error("Error sending email:", error);
+        // console.error("Error sending email:", error);
         return res.status(500).json({ error: error.toString() });
       }
     });
@@ -99,7 +99,7 @@ const loginRouter = async (req, res, next) => {
 
     //   transporter.sendMail(mailOptions, (error, info) => {
     //     if (error) {
-    //       console.error("Error sending email:", error);
+    //       // // console.error("Error sending email:", error);
     //       return res.status(500).json({ error: error.toString() });
     //     }
     //   });
@@ -116,7 +116,7 @@ const loginRouter = async (req, res, next) => {
 };
 const updateRouter = async (req, res, next) => {
   try {
-    console.log("req user: " + req.user)
+    // console.log("req user: " + req.user)
     if (req.user != req.params.id) {
       return next(404, "you can't update your account");
     }
@@ -142,7 +142,7 @@ const updateRouter = async (req, res, next) => {
 };
 const logoutRouter = async (req, res, next) => {
   try {
-    console.log("hiii");
+    // console.log("hiii");
 
     
     res.status(200).json("logout successfully");
@@ -173,14 +173,14 @@ const reset_password = async (req, res, next) => {
     };
     transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
-        console.error("Error sending email:", error);
+        // console.error("Error sending email:", error);
         return res.status(500).json({ error: error.toString() });
       }
 
       res.status(200).json({ message: "Email sent", response: info.response });
     });
   } catch (error) {
-    console.error("Reset password error:", error);
+    // console.error("Reset password error:", error);
     next(error);
   }
 };
@@ -207,7 +207,7 @@ const newpasswordchange = async (req, res, next) => {
     // Respond with success message or any relevant data
     res.status(200).json({ message: "Password updated successfully" });
   } catch (error) {
-    console.error("Password change error:", error);
+    // console.error("Password change error:", error);
     next(error);
   }
 };

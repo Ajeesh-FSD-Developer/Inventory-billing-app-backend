@@ -7,7 +7,7 @@ const { ObjectId } = require("mongoose").Types;
 
 const getdashboarddetails = async (req, res, next) => {
   try {
-    console.log("req",req.user)
+    // console.log("req",req.user)
     
     const product = await PRODUCT.find({ admin: req.user });
   

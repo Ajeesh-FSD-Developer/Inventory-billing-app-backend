@@ -60,16 +60,16 @@ const getProducts = async (req, res, next) => {
     // Respond with the desired data
     res.status(200).json(products);
   } catch (error) {
-    console.error("Error fetching products:", error);
+    // console.error("Error fetching products:", error);
     next(errorHandler(500, "Internal Server Error"));
   }
 };
 const editProduct = async (req, res, next) => {
   try {
-    console.log(req.params.id);
+    // console.log(req.params.id);
 
     const product = await PRODUCT.findOne({ _id: req.params.id });
-    console.log(product);
+    // console.log(product);
     if (!product) {
       return next(errorHandler(404, "Product not found"));
     }
@@ -105,7 +105,7 @@ const editproductdone = async (req, res, next) => {
       { $set: updateFields },
       { new: true }
     );
-    console.log("updated", updated);
+    // console.log("updated", updated);
 
     res.status(200).json(updated);
   } catch (error) {
