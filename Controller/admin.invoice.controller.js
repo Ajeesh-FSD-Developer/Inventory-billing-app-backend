@@ -27,7 +27,7 @@ const createInvoice = async (req, res, next) => {
       { sort: { invoiceNumber: -1 } }
     );
     let lastInvoiceNumber = lastInvoice
-      ? parseInt(lastInvoice.invoiceNumber.slice(4))
+      ? parseInt(lastInvoice.invoiceNumber.slice(0))
       : 0;
 
     // If parseInt returns NaN, default to 1
@@ -49,6 +49,7 @@ const createInvoice = async (req, res, next) => {
     // Create a new invoice with a unique invoice number
     const currentDate = format(new Date(), "yyyy/MM/dd");
     const dueDate = format(parseISO(req.body.date), "yyyy/MM/dd");
+
     const addProductsToCustomer = await CUSTOMER.findOne({
       _id: req.body.currentCustomer._id,
     });
