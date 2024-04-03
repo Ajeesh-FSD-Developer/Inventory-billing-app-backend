@@ -26,7 +26,7 @@ const createInvoice = async (req, res, next) => {
       {},
       { sort: { invoiceNumber: -1 } }
     );
-    let lastInvoiceNumber = lastInvoice
+    let lastInvoiceNumber = lastInvoice.invoiceNumber
       ? parseInt(lastInvoice.invoiceNumber.slice(0))
       : 0;
 
